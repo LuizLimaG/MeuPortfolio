@@ -4,18 +4,14 @@ import { useEffect, useState } from "react";
 import ProjectCards from "../card/projectCards";
 
 const firebaseApp = {
-  apiKey: "AIzaSyAXpnIC0yx1xs9cmfiZiqwwCTYreUz0RmM",
-  authDomain: "myprojects-abc07.firebaseapp.com",
-  projectId: "myprojects-abc07",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
 };
 
 export default function MainSection() {
   const app = initializeApp(firebaseApp);
 
-  const [tag, setTag] = useState("");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
   const [projects, setProjects] = useState([]);
 
   const db = getFirestore(app)
