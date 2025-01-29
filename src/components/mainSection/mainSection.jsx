@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 export default function MainSection() {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getProjects = async () => {
@@ -20,6 +21,8 @@ export default function MainSection() {
       } catch (error) {
         console.error("Erro ao carregar projetos: ", error);
         setError(error.message);
+      } finally {
+        setLoading(false)
       }
     };
     getProjects();
@@ -34,7 +37,11 @@ export default function MainSection() {
       </section>
 
       <section className="flex flex-wrap items-center justify-around gap-y-4">
-        {error ? (
+        {loading ? (
+          <div className="flex items-center justify-center w-full">
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-r-notIsTheMostLightPurple border-justPurple" />
+          </div>
+        ) : error ? (
           <div className="text-red-400 text-center font-poppins font-semibold">
             Erro ao carregar projetos: {error}
           </div>
