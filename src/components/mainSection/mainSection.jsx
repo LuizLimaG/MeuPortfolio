@@ -1,33 +1,28 @@
-import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import ProjectCards from "../card/projectCards";
-
-const firebaseApp = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-};
-
-const app = initializeApp(firebaseApp);
-const db = getFirestore(app)
+import { db } from "../../data/firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function MainSection() {
-
   const [projects, setProjects] = useState([]);
-  const projectsCollectionRef = collection(db, "Projects")
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-      const getProjects = async () => {
-       try {
-        const data = await getDocs(projectsCollectionRef)
-        console.log(data)
-        setProjects(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-       } catch {
-        console.error("Erro ao carregar projetos: ", error)
-       }
+    const getProjects = async () => {
+      try {
+        const projectsCollectionRef = collection(db, "Projects");
+        const data = await getDocs(projectsCollectionRef);
+        const projectsData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setProjects(projectsData);
+      } catch (error) {
+        console.error("Erro ao carregar projetos: ", error);
+        setError(error.message);
       }
-      getProjects()
+    };
+    getProjects();
   }, []);
 
   return (
@@ -39,15 +34,21 @@ export default function MainSection() {
       </section>
 
       <section className="flex flex-wrap items-center justify-around gap-y-4">
-        {projects.map((projeto, index) => (
-          <ProjectCards
-            key={index}
-            tag={projeto.tag}
-            title={projeto.title}
-            description={projeto.description}
-            image={projeto.image}
-          />
-        ))}
+        {error ? (
+          <div className="text-red-400 text-center font-poppins font-semibold">
+            Erro ao carregar projetos: {error}
+          </div>
+        ) : (
+          projects.map((projeto, index) => (
+            <ProjectCards
+              key={index}
+              tag={projeto.tag}
+              title={projeto.title}
+              description={projeto.description}
+              image={projeto.image}
+            />
+          ))
+        )}
       </section>
     </main>
   );
