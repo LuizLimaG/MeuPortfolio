@@ -46,6 +46,7 @@ export default function MainSection() {
               title={projeto.title}
               description={projeto.description}
               image={projeto.image}
+              url={projeto.url}
             />
           ))
         )}

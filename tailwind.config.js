@@ -10,6 +10,7 @@ export default {
         darkPurple: "#120007",
         notSoDarkPurple: "#280B20",
         lightPurple: "#6C2E6A",
+        justPurple: "#9E299A",
         theMostLightPurple: "#FFF2FF",
         justWhite: "#FFF",
       },
