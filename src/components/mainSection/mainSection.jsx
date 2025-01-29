@@ -9,21 +9,26 @@ const firebaseApp = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
 };
 
+const app = initializeApp(firebaseApp);
+const db = getFirestore(app)
+
 export default function MainSection() {
-  const app = initializeApp(firebaseApp);
 
   const [projects, setProjects] = useState([]);
-
-  const db = getFirestore(app)
   const projectsCollectionRef = collection(db, "Projects")
 
   useEffect(() => {
       const getProjects = async () => {
+       try {
         const data = await getDocs(projectsCollectionRef)
+        console.log(data)
         setProjects(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+       } catch {
+        console.error("Erro ao carregar projetos: ", error)
+       }
       }
       getProjects()
-  });
+  }, []);
 
   return (
     <main className="w-full md:px-20 py-16 flex flex-col gap-12">
