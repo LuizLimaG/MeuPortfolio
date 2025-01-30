@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 export default function ProjectCards({ tag, title, description, image, url }) {
   return (
-    <div className="w-[420px] rounded-sm bg-justWhite shadow-shadowDefault duration-100">
+    <div className="w-[300px] md:w-[420px] rounded-sm bg-justWhite shadow-shadowDefault duration-100">
       <section className="w-full h-4/6 flex flex-col gap-5 justify-between p-5">
         <div>
           <div>
-            <h1 className="font-poppins font-semibold text-[25px]">{title}</h1>
+            <h1 className="font-poppins font-semibold text-[20px] md:text-[25px]">{title}</h1>
           </div>
 
-          <div className="font-poppins font-normal text-[20px]">
+          <div className="font-poppins font-normal text-[17px] md:text-[20px]">
             {description}
           </div>
         </div>
 
         <div className="w-full flex flex-col gap-2">
-          <div className="bg-lightPurple w-fit py-1 px-3 rounded-md font-poppins font-medium text-justWhite text-[15px]">
+          <div className="bg-lightPurple w-fit py-1 px-3 rounded-md font-poppins font-medium text-justWhite text-[13px] md:text-[15px]">
             {tag}
           </div>
           <div className="w-full h-12 flex items-center">
