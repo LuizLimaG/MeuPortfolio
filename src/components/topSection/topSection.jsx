@@ -27,7 +27,7 @@ export default function TopSection() {
       </aside>
       <aside className=" w-full md:w-2/6 flex items-center justify-center">
         <img
-          src="../../../public/images/topSectionImage.png"
+          src="/topSectionImage.png"
           alt="Imagem"
           className="rounded-lg w-[200px] md:w-[300px] "
         />
