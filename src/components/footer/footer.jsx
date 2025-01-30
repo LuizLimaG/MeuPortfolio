@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full h-20 md:rounded-md bg-darkPurple shadow-neonPurple flex flex-col-reverse justify-center items-center gap-2 sm:flex-row sm:px-20 sm:gap-0">
+    <footer className="w-full h-20 bg-darkPurple shadow-neonPurple flex flex-col-reverse justify-center items-center gap-2 sm:flex-row sm:px-20 sm:gap-0">
       <aside className="w-full flex items-center justify-center sm:justify-start">
         <h1 className="text-justWhite text-[15px] font-poppins">
           Feito por Luiz Lima | © 2025
