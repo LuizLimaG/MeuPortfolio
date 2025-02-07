@@ -21,6 +21,7 @@ export default {
       },
       boxShadow: {
         shadowDefault: "0px 0px 3px -1px #000",
+        shadowDefaultHover: "0px 0px 4px -1px #000",
         neonPurple: "0px 0px 20px 0px #280B20",
         anotherNeonPurple: "0px 0px 10px 0px #C837C3",
       }

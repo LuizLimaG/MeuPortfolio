@@ -16,25 +16,41 @@ export default function Footer() {
 
       <aside className="w-full flex gap-2 items-center justify-center sm:justify-end">
         <a href="https://github.com/LuizLimaG/" target="_blank">
-            <GithubLogo size={32} className="text-justWhite hover:text-lightPurple transition-all duration-200" weight="fill" />
+          <GithubLogo
+            size={32}
+            className="text-justWhite hover:text-lightPurple transition-all duration-200"
+            weight="fill"
+          />
         </a>
 
         <div className="w-1 h-7 bg-lightPurple rounded-lg" />
 
         <a href="https://linkedin.com/in/luiz-lima-g" target="_blank">
-            <LinkedinLogo size={32} className="text-justWhite hover:text-lightPurple transition-all duration-200" weight="fill" />
+          <LinkedinLogo
+            size={32}
+            className="text-justWhite hover:text-lightPurple transition-all duration-200"
+            weight="fill"
+          />
         </a>
 
         <div className="w-1 h-7 bg-lightPurple rounded-lg" />
 
         <a href="mailto: luizzfelipeliima@gmail.com" target="_blank">
-            <At size={32} className="text-justWhite hover:text-lightPurple transition-all duration-200" weight="fill"/>
+          <At
+            size={32}
+            className="text-justWhite hover:text-lightPurple transition-all duration-200"
+            weight="fill"
+          />
         </a>
 
         <div className="w-1 h-7 bg-lightPurple rounded-lg" />
 
         <a href="https://wa.me/+5531994903455" target="_blank">
-            <WhatsappLogo size={32} className="text-justWhite hover:text-lightPurple transition-all duration-200" weight="fill"/>
+          <WhatsappLogo
+            size={32}
+            className="text-justWhite hover:text-lightPurple transition-all duration-200"
+            weight="fill"
+          />
         </a>
       </aside>
     </footer>
