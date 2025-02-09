@@ -33,7 +33,7 @@ export function ContactSection() {
           Meus Contatos
         </h1>
       </section>
-      <section className="flex flex-wrap items-center justify-around gap-y-4">
+      <section className="w-4/6 mx-auto flex flex-wrap items-center justify-around gap-y-4">
         {items.map((item, index) => (
             <ContactCard 
                 key={index}
